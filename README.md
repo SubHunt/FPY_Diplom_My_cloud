@@ -3,3 +3,5 @@
 
 Что сделано...
 Установлены Django и React
+Установка и подключение БД PostgreSQL myclouddb
+Попытка скрестить Django и React на одном порту.
