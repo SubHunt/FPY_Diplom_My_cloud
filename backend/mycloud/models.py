@@ -5,6 +5,7 @@ from django.db import models
 def path_to_file(filename):
     user = User.login
     return f'{user}/{filename}'
+
 class User(models.Model):
     login = models.CharField(max_length=20, primary_key=True, verbose_name='Логин')
     name = models.CharField(max_length=20, blank=False, verbose_name='Имя')
