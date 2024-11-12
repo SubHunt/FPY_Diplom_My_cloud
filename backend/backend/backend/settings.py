@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'mycloud',
+    'users.apps.UsersConfig',
+    'psycopg',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +80,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'myclouddb',
         'USER': 'postgres',
-        'PASSWORD': 'root',
+        'PASSWORD': 'admin',
         'HOST': 'localhost',
-        'PORT': 5433,
+        'PORT': 5432,
     }
 }
 
@@ -122,7 +123,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR/'static'
-STATICFILES_DIRS =(
+STATICFILES_DIRS = (
     (BASE_DIR/'../frontend/build/static'),
 )
 # Default primary key field type
