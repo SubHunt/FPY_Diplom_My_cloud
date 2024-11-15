@@ -28,11 +28,25 @@ pip install pipenv
 
 pipenv install
 
+Создайте БД в PgAdmin4 или в терминале
 
+psql 
+CREATE DATABASE name_db
 
+Выполните миграции БД
+
+python manage.py migrate
+
+Создайте суперпользователя для админки Django (Для входа в админ-панель)
+
+python manage.py createsuperuser
+
+Запустите сервер Django
+
+python manage.py runserver
 
 Что сделано...
 Установлены Django и React
-Установка и подключение БД PostgreSQL myclouddb
+Установка и подключение БД PostgreSQL mycloud_db
 Скрестил Django и React на одном порту.
-Создал первичные тестовые модели "Пользователи" и "Файлы". Связь один-ко-многим 
+Создал первичные тестовые модели "Пользователи" и "Файлы". Связь один-ко-многим.
