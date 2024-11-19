@@ -10,7 +10,7 @@ def path_to_file(filename):
 
 class User(models.Model):
     login = models.CharField(
-        max_length=20, primary_key=True, verbose_name='Логин')
+        max_length=20, verbose_name='Логин')
     name = models.CharField(max_length=20, blank=False, verbose_name='Имя')
     password = models.CharField(max_length=50, verbose_name='Пароль')
     email = models.EmailField(max_length=50, verbose_name='Е-майл')
@@ -19,10 +19,11 @@ class User(models.Model):
     path_to_user = models.CharField(
         max_length=50, verbose_name='Путь к файлам пользователя')
 
+    def __str__(self):
+        return self.login
+
 
 class Files(models.Model):
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, verbose_name='Пользователь')
     title = models.CharField(max_length=100, unique=True,
                              verbose_name='Название файла')
     description = models.TextField(blank=True, verbose_name='Описание')
@@ -34,3 +35,8 @@ class Files(models.Model):
         max_length=50, unique=True, blank=True, verbose_name="Прямая ссылка")
     path = models.FileField(upload_to=path_to_file,
                             verbose_name='Путь к файлу')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, verbose_name='Владелец файла')
+
+    def __str__(self):
+        return self.title

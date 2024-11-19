@@ -13,37 +13,33 @@ Python: Create Environment и выберите "Venv Creates .venv virtual envir
 python -m venv .venv
 
 Активируйте его
-
 .venv/Scripts/activate
 
 Установите зависимости
-
 pip install -r requirements.txt
 
 либо используйте (установите при необходимости) pipenv
-
 pip install pipenv
 
 и установите зависимости из файла Pipfile
-
 pipenv install
 
 Создайте БД в PgAdmin4 или в терминале
-
 psql 
 CREATE DATABASE name_db
 
 Выполните миграции БД
-
 python manage.py migrate
 
 Создайте суперпользователя для админки Django (Для входа в админ-панель)
-
 python manage.py createsuperuser
 
 Запустите сервер Django
-
 python manage.py runserver
+
+Админка доступна по адресу
+http://127.0.0.1:8000/admin/
+
 
 Что сделано...
 Установлены Django и React
