@@ -15,8 +15,8 @@ def path_to_file(instance, filename):
 
 
 class User(models.Model):
-    login = models.CharField(
-        max_length=20, verbose_name='Логин')
+    login = models.CharField(unique=True,
+                             max_length=20, verbose_name='Логин')
     name = models.CharField(max_length=20, blank=False, verbose_name='Имя')
     password = models.CharField(max_length=50, verbose_name='Пароль')
     email = models.EmailField(max_length=50, verbose_name='Е-майл')

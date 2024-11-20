@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ file.title }}{% endblock %}
+
+{% block content %}
+<h1 class="mt-5">Название файла: {{ file.title }}</h1>
+<h2>Описание: {{ file.description }}</h2>
+<h3>Дата публикации: {{ file.published }}</h3>
+<h3>Дата обновления: {{ file.date_last_load }}</h3>
+<h3>Прямая ссылка: {{ file.link_download }}</h3>
+<h3>Путь к файлу: {{ file.path }}</h3>
+<h3>Владелец: {{ file.user }}</h3>
+<button class="btn btn-primary">Go to</button>
+{% endblock %}

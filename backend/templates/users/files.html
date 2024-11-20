@@ -17,7 +17,9 @@
   </thead>
   <tbody>
     {% for file in files %}    <tr>
-      <td>{{ file.title }}</td>
+      <td> 
+        <a href={% url "users:single_file" file.id %}>{{ file.title }}</a>
+      </td>
       <td>{{ file.description }}</td>
       <td>{{ file.published }}</td>
       <td>{{ file.date_last_load }}</td>
