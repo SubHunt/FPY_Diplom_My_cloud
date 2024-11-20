@@ -3,9 +3,15 @@ from django.db import models
 # Функция создания пути к файлу путем имя пользователя(оно же название папки/ название файла)
 
 
-def path_to_file(filename):
-    user = User.login
-    return f'{user}/{filename}'
+# def path_to_file(filename):
+#     print(filename)
+#     print(User.login)
+#     user = User.login
+#     return f'{user}/{filename}'
+
+def path_to_file(instance, filename):
+    user_name = instance.user.name
+    return f'storage/dir_{user_name}/{filename}'
 
 
 class User(models.Model):
