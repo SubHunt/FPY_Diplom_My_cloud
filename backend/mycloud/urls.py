@@ -17,20 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from users.views import index
-from api.models import UserResource, FilesResource
-from tastypie.api import Api
 
-api = Api(api_name='v1')  # Добавляем версию api
-user_resource = UserResource()
-files_resource = FilesResource()
-api.register(user_resource)
-api.register(files_resource)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
+    path('', include('users.urls')),
     # path('api/', include(user_resource.urls)),
-    path('api/', include(api.urls))
+    path('api/', include('api.urls'))
 ]
 
 # handler404 = "users.views.error_view"

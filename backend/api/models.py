@@ -17,6 +17,8 @@ class FilesResource(ModelResource):
         queryset = Files.objects.all()
         resource_name = 'files'
         allowed_methods = ['get', 'post', 'delete']
+        # Скрываем в Json ненужные поля при необходимости
+        excludes = ['link_download']
         authentication = CustomAuthentication()
         authorization = Authorization()
 
@@ -31,5 +33,5 @@ class FilesResource(ModelResource):
 
     def dehydrate(self, bundle):
         bundle.data['user'] = bundle.obj.user
-        bundle.data['user_id'] = bundle.obj.user.id
+        bundle.data['user_id'] = bundle.obj.user_id
         return bundle
